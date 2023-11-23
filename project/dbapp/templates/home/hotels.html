@@ -1,0 +1,165 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Hotels {% endblock title %}
+
+
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block body_class %} hotels {% endblock body_class %}
+
+{% block content %}
+
+  {% include "includes/navigation-light.html" %}
+
+  <header>
+
+    <section class="my-5 py-5">
+
+
+
+
+
+
+
+
+        <div class="container">
+          <div class="row">
+            <div class="row justify-content-center text-center my-sm-5">
+              <div class="col-lg-6">
+                <h2 class="text-dark mb-0">Huge collection of Hotels</h2>
+                <h2 class="text-primary text-gradient">Infinite choices</h2>
+                <p class="lead">We have created multiple teams for you to travel together and relax. </p>
+                <div class="ps-md-0 d-flex align-self-center">
+                  <form action="{%url 'gethotel_search'%}" method="get">
+
+                 
+                  <div class="bg-white border-radius-lg ps-8 d-flex" style="gap:15px">
+                    <input type="text" name="q" class="form-control border-0 " placeholder="Type here...">
+                    <button class="btn bg-gradient-primary my-1 me-1" href="{%url 'gethotel_search'%}">Search</button>
+                   </div>
+                  </form>
+                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% for i in form %}
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-5 col-md-8 order-2 order-md-2 order-lg-1">
+              <div class="position-relative ms-lg-5 mb-0 mb-md-7 mb-lg-0 d-none d-md-block d-lg-block d-xl-block h-75">
+                <div class="bg-gradient-primary w-100 h-100 border-radius-xl position-absolute d-lg-block d-none" alt=""></div>
+                <img src="{{i.2}}" class="w-100 border-radius-xl mt-6 ms-lg-5 position-relative z-index-5" alt="">
+              </div>
+            </div>
+            
+            <div class="col-lg-5 col-md-12 ms-auto order-1 order-md-1 order-lg-1">
+              <div class="p-3 pt-0">
+                <div class="icon icon-shape bg-gradient-primary rounded-circle shadow text-center mb-4">
+                  <i class="ni ni-building"></i>
+                </div>
+                <h4 class="text-gradient text-primary mb-0">{{i.4}}</h4>
+                <h4 class="mb-4"><a href="https://twitter.com/dnyivn" target="blank" rel="nofollow">{{i.1}}</a></h4>
+                <p>{{i.5}}</p>
+                <!-- <p>Off Highway P-3, our hotel is perched on the edge of the EXPO 2017 Exhibition Center campus. We're steps from Mega Silk Way shopping and dining and five kilometers from Bayterek Tower, offering panoramic views over Nur-Sultan. Unwind at our spa, boasting saunas and a Turkish bath, and enjoy our rooftop bar and heated indoor pool.Each day starts with a mix of cuisines in Park Kitchen.</p> -->
+              </div>
+              <div style="display: flex;align-items: center;text-align: center;">
+                <p style="margin: 0; color: black;">Price:<b> {{i.3}}$</b></p>
+                <div class="col-md-8 text-center">
+                  
+                  <!-- <button class="btn bg-gradient-primary mt-3 mb-0" href="hotels/{{i.hotel_id}}" >Select</button> -->
+                  <!-- <a href="">Select</a> -->
+                  <a href="add/{{i.0}}" 
+                  target="_blank" 
+                  class="btn btn-sm  bg-gradient-primary btn-round mb-0 me-1 mt-2 mt-md-0">Select</a>
+                </div>
+              </div>
+  
+            </div>
+  
+          </div>
+        </div>
+        {% endfor %}
+        <!-- <section class="pt-lg-7 pt-5">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-5 col-md-8 order-2 order-md-2 order-lg-1">
+                  <div class="position-relative ms-lg-5 mb-0 mb-md-7 mb-lg-0 d-none d-md-block d-lg-block d-xl-block h-75">
+                    <div class="bg-gradient-primary w-100 h-100 border-radius-xl position-absolute d-lg-block d-none" alt=""></div>
+                    <img src="/static/assets/img/curved-images/rixos.png" class="w-100 border-radius-xl mt-6 ms-lg-5 position-relative z-index-5" alt="">
+                  </div>
+                </div>
+                
+                <div class="col-lg-5 col-md-12 ms-auto order-1 order-md-1 order-lg-1">
+                  <div class="p-3 pt-0">
+                    <div class="icon icon-shape bg-gradient-primary rounded-circle shadow text-center mb-4">
+                      <i class="ni ni-building"></i>
+                    </div>
+                    <h4 class="text-gradient text-primary mb-0">Special Hotels</h4>
+                    <h4 class="mb-4"><a href="https://twitter.com/dnyivn" target="blank" rel="nofollow">RIXOS</a></h4>
+                    <p>This luxurious 5-star hotel is located in Almaty city centre, 1 km from St. Nicholas Cathedral. Rixos Almaty Hotel offers modern rooms with free Wi-Fi and a spa area with a swimming pool.
+                      All air-conditioned rooms at Rixos Almaty come with a work desk and a balcony with great views. 
+                       The lobby bar and lounge are open 24/7. There is also a Brasserie restaurant.
+                      The 2,200 m2 spa includes a gym, sauna, Turkish bath, indoor garden and 7 massage rooms.</p>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-5 col-md-8 order-2 order-md-2 order-lg-1">
+                  <div class="position-relative ms-lg-5 mb-0 mb-md-7 mb-lg-0 d-none d-md-block d-lg-block d-xl-block h-75">
+                    <div class="bg-gradient-primary w-100 h-100 border-radius-xl position-absolute d-lg-block d-none" alt=""></div>
+                    <img src="/static/assets/img/curved-images/karl.png" class="w-100 border-radius-xl mt-6 ms-lg-5 position-relative z-index-5" alt="">
+                  </div>
+                </div>
+                
+                <div class="col-lg-5 col-md-12 ms-auto order-1 order-md-1 order-lg-1">
+                  <div class="p-3 pt-0">
+                    <div class="icon icon-shape bg-gradient-primary rounded-circle shadow text-center mb-4">
+                      <i class="ni ni-building"></i>
+                    </div>
+                    <h4 class="text-gradient text-primary mb-0">Special Hotels</h4>
+                    <h4 class="mb-4"><a href="https://twitter.com/dnyivn" target="blank" rel="nofollow">RITZ-CARLTON</a></h4>
+                    <p>Off Highway P-3, our hotel is perched on the edge of the EXPO 2017 Exhibition Center campus. We're steps from Mega Silk Way shopping and dining and five kilometers from Bayterek Tower, offering panoramic views over Nur-Sultan. Unwind at our spa, boasting saunas and a Turkish bath, and enjoy our rooftop bar and heated indoor pool.Each day starts with a mix of cuisines in Park Kitchen.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+        
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-5 col-md-8 order-2 order-md-2 order-lg-1">
+                  <div class="position-relative ms-lg-5 mb-0 mb-md-7 mb-lg-0 d-none d-md-block d-lg-block d-xl-block h-75">
+                    <div class="bg-gradient-primary w-100 h-100 border-radius-xl position-absolute d-lg-block d-none" alt=""></div>
+                    <img src="/static/assets/img/curved-images/hilton-astana.png" class="w-100 border-radius-xl mt-6 ms-lg-5 position-relative z-index-5" alt="">
+                  </div>
+                </div>
+                
+                <div class="col-lg-5 col-md-12 ms-auto order-1 order-md-1 order-lg-1">
+                  <div class="p-3 pt-0">
+                    <div class="icon icon-shape bg-gradient-primary rounded-circle shadow text-center mb-4">
+                      <i class="ni ni-building"></i>
+                    </div>
+                    <h4 class="text-gradient text-primary mb-0">Special Hotels</h4>
+                    <h4 class="mb-4"><a href="https://twitter.com/dnyivn" target="blank" rel="nofollow">HYLTON</a></h4>
+                    <p>Off Highway P-3, our hotel is perched on the edge of the EXPO 2017 Exhibition Center campus. We're steps from Mega Silk Way shopping and dining and five kilometers from Bayterek Tower, offering panoramic views over Nur-Sultan. Unwind at our spa, boasting saunas and a Turkish bath, and enjoy our rooftop bar and heated indoor pool.Each day starts with a mix of cuisines in Park Kitchen.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section> -->
+
+    
+  </header>
+
+{% endblock content %}
+
+
+{% block javascripts %}
+
+  <script src="/static/assets/js/soft-design-system.min.js?v=1.0.1" type="text/javascript"></script>
+
+{% endblock javascripts %}

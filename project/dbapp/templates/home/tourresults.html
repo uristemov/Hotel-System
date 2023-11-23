@@ -1,0 +1,70 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Hotels {% endblock title %}
+
+
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block body_class %} hotels {% endblock body_class %}
+
+{% block content %}
+
+  {% include "includes/navigation-light.html" %}
+  <div class="container">
+          <div class="row">
+            <div class="row justify-content-center text-center my-sm-5">
+              <div class="col-lg-6">
+                <h2 class="text-dark mb-0">Search results</h2>
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+          {% for i in object_list %}
+          <div class="container">
+                    <div class="row">
+                      <div class="col-lg-5 col-md-8 order-2 order-md-2 order-lg-1">
+                        <div class="position-relative ms-lg-5 mb-0 mb-md-7 mb-lg-0 d-none d-md-block d-lg-block d-xl-block h-75">
+                          <div class="bg-gradient-primary w-100 h-100 border-radius-xl position-absolute d-lg-block d-none" alt=""></div>
+                          <img src="{{i.tour_photo}}" class="w-100 border-radius-xl mt-6 ms-lg-5 position-relative z-index-5" alt="">
+                        </div>
+                      </div>
+                      
+                      <div class="col-lg-5 col-md-12 ms-auto order-1 order-md-1 order-lg-1">
+                        <div class="p-3 pt-0">
+                          <div class="icon icon-shape bg-gradient-primary rounded-circle shadow text-center mb-4">
+                            <i class="ni ni-building"></i>
+                          </div>
+                          <h4 class="text-gradient text-primary mb-0">{{i.tour_name}}</h4>
+                          <p>{{i.tour_description}}</p>
+                          <!-- <p>Off Highway P-3, our hotel is perched on the edge of the EXPO 2017 Exhibition Center campus. We're steps from Mega Silk Way shopping and dining and five kilometers from Bayterek Tower, offering panoramic views over Nur-Sultan. Unwind at our spa, boasting saunas and a Turkish bath, and enjoy our rooftop bar and heated indoor pool.Each day starts with a mix of cuisines in Park Kitchen.</p> -->
+                        </div>
+                        <div style="display: flex;align-items: center;text-align: center;">
+                          <p style="margin: 0; color: black;">Price:<b> {{i.tour_price}}$</b></p>
+
+                        </div>
+            
+                      </div>
+            
+                    </div>
+                  </div>
+
+                  
+
+
+          {% endfor %}
+
+
+
+
+
+
+{% endblock content %}
+
+
+{% block javascripts %}
+
+  <script src="/static/assets/js/soft-design-system.min.js?v=1.0.1" type="text/javascript"></script>
+
+{% endblock javascripts %}

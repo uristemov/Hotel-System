@@ -1,0 +1,171 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Tours {% endblock title %}
+
+
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block body_class %} tours {% endblock body_class %}
+
+{% block content %}
+
+  {% include "includes/navigation-light.html" %}
+
+  <header>
+
+    <section class="my-5 py-5">
+        <div class="container">
+          <div class="row">
+            <div class="row justify-content-center text-center my-sm-5">
+              <div class="col-lg-6">
+                <h2 class="text-dark mb-0">Huge collection of Tours</h2>
+                <h2 class="text-primary text-gradient">Tours in Kazakhstan</h2>
+                <div class="ps-md-0 d-flex align-self-center">
+
+                  <div class="ps-md-0 d-flex align-self-center">
+                    <form action="{%url 'gettour_search'%}" method="get">
+  
+                   
+                    <div class="bg-white border-radius-lg ps-8 d-flex" style="gap:15px">
+                      <input type="text" name="q" class="form-control border-0 " placeholder="Type here...">
+                      <button class="btn bg-gradient-primary my-1 me-1" href="{%url 'gettour_search'%}">Search</button>
+                     </div>
+                    </form>
+                   </div>
+
+                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <section class="pt-lg-7 pt-5">
+          {%for i in form%}
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-5 col-md-8 order-2 order-md-2 order-lg-1">
+                <div class="position-relative ms-lg-5 mb-0 mb-md-7 mb-lg-0 d-none d-md-block d-lg-block d-xl-block h-75">
+                  <div class="bg-gradient-primary w-100 h-100 border-radius-xl position-absolute d-lg-block d-none" alt=""></div>
+                  <img src="{{i.2}}" class="w-100 border-radius-xl mt-6 ms-lg-5 position-relative z-index-5" alt="">
+                </div>
+              </div>
+              
+              <div class="col-lg-5 col-md-12 ms-auto order-1 order-md-1 order-lg-1">
+                <div class="p-3 pt-0">
+                  <div class="icon icon-shape bg-gradient-primary rounded-circle shadow text-center mb-4">
+                    <i class="ni ni-building"></i>
+                  </div>
+                  <h4 class="text-gradient text-primary mb-0">Tour "{{i.1}}"</h4>
+                  <h4 class="mb-4"><a href="" target="blank" rel="nofollow">{{i.4}}</a></h4>
+                  <p>{{i.5}}</p>
+                  <h5 class="text-gradient text-primary mb-0">{{i.3}}$ for 1 night</h4>
+              </div>
+                  <a href="add/{{i.0}}" 
+                     target="_blank" 
+                     class="btn btn-sm  bg-gradient-primary btn-round mb-0 me-1 mt-2 mt-md-0">Select</a>
+              </div>
+            </div>
+          </div>
+          {%endfor%}
+
+
+
+
+
+
+<!-- 
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-5 col-md-8 order-2 order-md-2 order-lg-1">
+                  <div class="position-relative ms-lg-5 mb-0 mb-md-7 mb-lg-0 d-none d-md-block d-lg-block d-xl-block h-75">
+                    <div class="bg-gradient-primary w-100 h-100 border-radius-xl position-absolute d-lg-block d-none" alt=""></div>
+                    <img src="/static/assets/img/illustrations/kolsay.jpg" class="w-100 border-radius-xl mt-6 ms-lg-5 position-relative z-index-5" alt="">
+                  </div>
+                </div>
+                
+                <div class="col-lg-5 col-md-12 ms-auto order-1 order-md-1 order-lg-1">
+                  <div class="p-3 pt-0">
+                    <div class="icon icon-shape bg-gradient-primary rounded-circle shadow text-center mb-4">
+                      <i class="ni ni-building"></i>
+                    </div>
+                    <h4 class="text-gradient text-primary mb-0">Tour "KOLSAY"</h4>
+                    <h4 class="mb-4"><a href="" target="blank" rel="nofollow">Almaty</a></h4>
+                    <p>08:00 Breakfast,
+                        10:00 Excursion to the Kolsay lakes, 19:00 Return and dinner, 20:00 Free time,
+                        09:00 Breakfast, 10:00 Excursion to Kaindy Lake, 14:00 Lunch, 15:30 Departure to Almaty, 16:00 Stop at the observation deck of the Black Canyon</p>
+                    <h5 class="text-gradient text-primary mb-0">200$ for 2 days</h4>
+                </div>
+                    <a href="/tour-orders.html" 
+                       target="_blank" 
+                       class="btn btn-sm  bg-gradient-primary btn-round mb-0 me-1 mt-2 mt-md-0">Select</a>
+                </div>
+              </div>
+            </div>
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-5 col-md-8 order-2 order-md-2 order-lg-1">
+                  <div class="position-relative ms-lg-5 mb-0 mb-md-7 mb-lg-0 d-none d-md-block d-lg-block d-xl-block h-75">
+                    <div class="bg-gradient-primary w-100 h-100 border-radius-xl position-absolute d-lg-block d-none" alt=""></div>
+                    <img src="/static/assets/img/illustrations/turkestan.jpg" class="w-100 border-radius-xl mt-6 ms-lg-5 position-relative z-index-5" alt="">
+                  </div>
+                </div>
+                
+                <div class="col-lg-5 col-md-12 ms-auto order-1 order-md-1 order-lg-1">
+                  <div class="p-3 pt-0">
+                    <div class="icon icon-shape bg-gradient-primary rounded-circle shadow text-center mb-4">
+                      <i class="ni ni-building"></i>
+                    </div>
+                    <h4 class="text-gradient text-primary mb-0">Tour "Turkestan"</h4>
+                    <h4 class="mb-4"><a href="https://twitter.com/dnyivn" target="blank" rel="nofollow">Turkestan</a></h4>
+                    <p>08:00 Breakfast,
+                        10:00 Excursion to the Caravan city, 19:00 Return and dinner, 20:00 Free time,
+                        09:00 Breakfast, 10:00 Excursion to Kozha Ahmet, 14:00 Lunch, 15:30 Departure to Turkestan, 16:00 Stop at the observation deck of the Otyrar</p>
+                    <h5 class="text-gradient text-primary mb-0">250$ for 2 days</h4>
+                </div>
+                    <a href="/tour-orders.html" 
+                       target="_blank" 
+                       class="btn btn-sm  bg-gradient-primary btn-round mb-0 me-1 mt-2 mt-md-0">Select</a>
+                </div>
+              </div>
+            </div>
+        
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-5 col-md-8 order-2 order-md-2 order-lg-1">
+                  <div class="position-relative ms-lg-5 mb-0 mb-md-7 mb-lg-0 d-none d-md-block d-lg-block d-xl-block h-75">
+                    <div class="bg-gradient-primary w-100 h-100 border-radius-xl position-absolute d-lg-block d-none" alt=""></div>
+                    <img src="/static/assets/img/illustrations/borovoe.jpg" class="w-100 border-radius-xl mt-6 ms-lg-5 position-relative z-index-5" alt="">
+                  </div>
+                </div>
+                
+                <div class="col-lg-5 col-md-12 ms-auto order-1 order-md-1 order-lg-1">
+                  <div class="p-3 pt-0">
+                    <div class="icon icon-shape bg-gradient-primary rounded-circle shadow text-center mb-4">
+                      <i class="ni ni-building"></i>
+                    </div>
+                    <h4 class="text-gradient text-primary mb-0">Tour "Borovoe"</h4>
+                    <h4 class="mb-4"><a href="https://twitter.com/dnyivn" target="blank" rel="nofollow">Kokshetau</a></h4>
+                    <p>08:00 Breakfast,
+                        10:00 Excursion to the Borovoe lakes, 19:00 Return and dinner, 20:00 Free time,
+                        09:00 Breakfast, 10:00 Excursion to Lake, 14:00 Lunch, 15:30 Departure to Kokshetau, 16:00 Stop at the observation deck of the Tanbaly Tas</p>
+                    <h5 class="text-gradient text-primary mb-0">500$ for 2 days</h4>
+                    </div>
+                        <a href="/tour-orders.html" 
+                           target="_blank" 
+                           class="btn btn-sm  bg-gradient-primary btn-round mb-0 me-1 mt-2 mt-md-0">Select</a>
+                </div>
+              </div>
+            </div> -->
+          </section>
+
+    
+  </header>
+
+{% endblock content %}
+
+
+{% block javascripts %}
+
+  <script src="/static/assets/js/soft-design-system.min.js?v=1.0.1" type="text/javascript"></script>
+
+{% endblock javascripts %}

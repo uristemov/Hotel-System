@@ -1,0 +1,99 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Tour Orders {% endblock title %}
+
+
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block body_class %} tour orders {% endblock body_class %}
+
+{% block content %}
+
+  {% include "includes/navigation-light.html" %}
+
+  <header>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="row justify-content-center text-center my-sm-5">
+          <div class="col-lg-6">
+            <h2 class="text-dark mb-0">Orders of Tours</h2>
+            <h2 class="text-primary text-gradient">Filter the choices</h2>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+      <div class="container-fluid py-4">
+        <div class="row">
+          <div class="col-12">
+            <div class="card mb-4">
+              <div class="card-body px-0 pt-0 pb-2">
+                <div class="table-responsive p-0">
+                  <table class="table align-items-center mb-0">
+                    <thead>
+                      <tr>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tour name</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Price</th>
+                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
+                        <th class="text-secondary opacity-7"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {%for i in form%}
+                      <tr>
+                        <td>
+                          <div class="d-flex px-2 py-1">
+                           
+                            <div class="d-flex flex-column justify-content-center">
+                              <h6 class="mb-0 text-sm">{{i.1}}</h6>
+                              <p class="text-xs text-secondary mb-0">{{i.2}}</p>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <p class="text-xs font-weight-bold mb-0">{{i.3}}$</p>
+                          <p class="text-xs text-secondary mb-0">for one night</p>
+                        </td>
+                        <td class="align-middle text-center text-sm">
+                          <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="delete/{{i.0}}"><i class="far fa-trash-alt me-2"></i>Delete</a>
+                        </td>
+                      </tr>
+                      {%endfor%}
+                      <h2>Total: {{sum.0}}$</h2>
+
+
+
+
+
+
+
+
+
+
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+  
+     
+
+
+  </header>
+
+{% endblock content %}
+
+
+{% block javascripts %}
+
+  <script src="/static/assets/js/soft-design-system.min.js?v=1.0.1" type="text/javascript"></script>
+
+{% endblock javascripts %}
